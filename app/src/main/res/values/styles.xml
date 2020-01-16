@@ -6,4 +6,28 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <!-- Tema para las actividades que van a usar Toolbar -->
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    ​
+    <!-- Estilo para la toolbar.
+         Si hereda de ThemeOverlay.AppCompat.Dark.ActionBar el fondo será
+         oscuro.se muestre de oscura -->
+    <style name="AppTheme.AppBarOverlay"
+        parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
+    ​
+    <!-- Estilo para que el menú de overflow en la toolbar.
+         Si hereda de ThemeOverlay.AppCompat.Light el fondo será claro
+         Si hereda de ThemeOverlay.AppCompat.Dark el fondo será oscuro -->
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light">
+        <!-- Podemos configurar los siguientes elementos
+        <item name="android:colorControlActivated">@color/red </item>
+        <item name="android:colorControlHighlight">@color/red</item>
+        <item name="android:colorControlNormal">@color/yellow</item>
+        <item name="android:textColorPrimary">@color/yellow</item>
+        -->
+    </style>
+
 </resources>
