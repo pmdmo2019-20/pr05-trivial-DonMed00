@@ -12,22 +12,27 @@
         android:layout_width="284dp"
         android:layout_height="@dimen/image_header_height"
         android:layout_gravity="center"
-        android:layout_marginTop="124dp"
-        android:src="@drawable/android_trivia"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/about_android_trivia"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintHorizontal_bias="0.37"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/btnPlay"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginStart="108dp"
-        android:layout_marginTop="32dp"
-        android:text="@string/title_btnPlay"
-        app:layout_constraintStart_toStartOf="@+id/imageView"
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="367dp"
+        android:layout_height="352dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="68dp"
+        android:gravity="start"
+        android:text="@string/about_lblRules"
+        android:textAlignment="textStart"
+        android:textColor="@color/black"
+        android:textSize="@dimen/sizeText"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

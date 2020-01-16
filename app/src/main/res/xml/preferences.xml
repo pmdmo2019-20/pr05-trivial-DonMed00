@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.preference.PreferenceCategory>
+        ​
+        <SeekBarPreference
+
+            app:title="@string/settings_numberOfQuestions"
+            android:icon="@drawable/ic_question_answer_black_24dp"
+            android:key="@string/prefConfirmDialog_key"
+            android:max="10"
+            app:min="1"
+            android:defaultValue="10"
+            app:showSeekBarValue="true"/>
+        ​
+        <androidx.preference.SwitchPreferenceCompat
+            android:defaultValue="@bool/prefConfirmSave_defaultValue"
+            android:icon="@drawable/ic_dialog_black_24dp"
+            android:key="@string/prefConfirmSave_key"
+            android:title="@string/settings_showDialog" />
+    </androidx.preference.PreferenceCategory>
+
+</PreferenceScreen>
