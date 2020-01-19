@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun navigateToInitialDestination() {
         supportFragmentManager.beginTransaction()
-            .replace(R.id.fcTitle,TitleFragment.newInstance(), Companion.TAG_TITLE_FRAGMENT)
+            .replace(R.id.fcTitle,TitleFragment.newInstance(), TAG_TITLE_FRAGMENT)
             .commit()
     }
 
@@ -83,7 +83,7 @@ class MainActivity : AppCompatActivity() {
 
 
     companion object {
-        private const val TAG_TITLE_FRAGMENT = "TAG_TITLE_FRAGMENT"
+         const val TAG_TITLE_FRAGMENT = "TAG_TITLE_FRAGMENT"
     }
 
 }

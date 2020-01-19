@@ -8,11 +8,16 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 
 import es.iessaladillo.pedrojoya.pr05_trivial.R
+import es.iessaladillo.pedrojoya.pr05_trivial.ui.game.GameFragment
+import es.iessaladillo.pedrojoya.pr05_trivial.ui.main.MainActivity
+import es.iessaladillo.pedrojoya.pr05_trivial.ui.main.MainActivity.Companion.TAG_TITLE_FRAGMENT
+import kotlinx.android.synthetic.main.title_fragment.*
 
 class TitleFragment : Fragment(R.layout.title_fragment) {
 
     companion object {
         fun newInstance() = TitleFragment()
+        private const val TAG_GAME_FRAGMENT = "TAG_GAME_FRAGMENT"
     }
 
     private  val viewModel: TitleViewModel by viewModels()
@@ -34,6 +39,18 @@ class TitleFragment : Fragment(R.layout.title_fragment) {
 
     private fun setupViews() {
         setupAppBar()
+        setupBtnPlay()
+    }
+
+    private fun setupBtnPlay() {
+        btnPlay.setOnClickListener { startGame() }
+    }
+
+    private fun startGame() {
+        activity!!.supportFragmentManager.beginTransaction()
+            .replace(R.id.fcTitle,GameFragment.newInstance())
+            .addToBackStack(TAG_TITLE_FRAGMENT)
+            .commit()
     }
 
     private fun setupAppBar() {
@@ -42,5 +59,6 @@ class TitleFragment : Fragment(R.layout.title_fragment) {
             setTitle(R.string.app_name)
         }
     }
+
 
 }

@@ -4,5 +4,5 @@ import es.iessaladillo.pedrojoya.pr05_trivial.data.entity.Question
 
 interface Repository {
 
-    fun orderQuestions()
+    fun queryQuestions() :List<Question>
 }
