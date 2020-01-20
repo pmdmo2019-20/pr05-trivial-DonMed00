@@ -12,6 +12,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.DialogFragment
 import es.iessaladillo.pedrojoya.pr05_trivial.R
+import es.iessaladillo.pedrojoya.pr05_trivial.data.LocalRepository
 import es.iessaladillo.pedrojoya.pr05_trivial.ui.title.TitleFragment
 
 /**

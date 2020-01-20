@@ -9,6 +9,7 @@ import es.iessaladillo.pedrojoya.pr05_trivial.R
 import es.iessaladillo.pedrojoya.pr05_trivial.ui.about.AboutFragment
 import es.iessaladillo.pedrojoya.pr05_trivial.ui.game.DialogFragment
 import es.iessaladillo.pedrojoya.pr05_trivial.ui.game.GameFragment
+import es.iessaladillo.pedrojoya.pr05_trivial.ui.game.GameViewModel
 import es.iessaladillo.pedrojoya.pr05_trivial.ui.rules.RulesFragment
 import es.iessaladillo.pedrojoya.pr05_trivial.ui.settings.SettingFragment
 import es.iessaladillo.pedrojoya.pr05_trivial.ui.title.TitleFragment

@@ -33,6 +33,7 @@ class GameViewModel(private val repository: Repository, private val application:
 
         refreshList(repository.queryQuestions())
 
+
     }
 
     private fun refreshList(newList: List<Question>) {

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/base_margin">
+
+
+    <ImageView
+        android:id="@+id/imgGame"
+        android:layout_width="305dp"
+        android:layout_height="203dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="36dp"
+        android:src="@drawable/android_category_simple"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/lblQuestion"
+        android:layout_width="359dp"
+        android:layout_height="62dp"
+        android:text="¿Coomo se llama el perro rojo de la casa de enfrente?"
+        android:textColor="@color/black"
+        android:textSize="@dimen/sizeText"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/imgGame"
+        app:layout_constraintTop_toTopOf="@+id/imgGame" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="360dp"
+        android:layout_height="121dp"
+        android:orientation="vertical"
+        app:layout_constraintStart_toEndOf="@+id/imgGame"
+        app:layout_constraintTop_toBottomOf="@+id/lblQuestion">
+
+        <RadioButton
+            android:id="@+id/radio1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="Respueesta1" />
+
+        <RadioButton
+            android:id="@+id/radio2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="Respueesta2" />
+
+        <RadioButton
+            android:id="@+id/radio3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="Respueesta3" />
+
+        <RadioButton
+            android:id="@+id/radio4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="Respueesta4" />
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/btnSubmit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="144dp"
+        android:layout_marginTop="44dp"
+        android:text="@string/game_btnSubmit"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/radioGroup"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup"
+        app:layout_constraintVertical_bias="0.0" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

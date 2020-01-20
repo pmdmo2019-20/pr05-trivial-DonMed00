@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/base_margin">
+
+    <ImageView
+        android:id="@+id/imgAbout"
+        android:layout_width="284dp"
+        android:layout_height="@dimen/image_header_height"
+        android:layout_gravity="center"
+        android:layout_marginTop="80dp"
+        android:src="@drawable/about_android_trivia"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.002"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="283dp"
+        android:layout_height="299dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="8dp"
+        android:gravity="start"
+        android:text="@string/about_lblRules"
+        android:textAlignment="textStart"
+        android:textColor="@color/black"
+        android:textSize="@dimen/sizeText"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/imgAbout"
+        app:layout_constraintTop_toTopOf="@+id/imgAbout" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

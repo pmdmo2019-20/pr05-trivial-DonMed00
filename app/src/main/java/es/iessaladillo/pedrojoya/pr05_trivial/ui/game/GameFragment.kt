@@ -84,7 +84,6 @@ class GameFragment : Fragment(R.layout.game_fragment) {
                 viewModel.resetIndex()
                 activity!!.supportFragmentManager.beginTransaction()
                     .replace(R.id.fcTitle, GameWonFragment.newInstance())
-
                     .commit()
 
             } else {
@@ -95,6 +94,7 @@ class GameFragment : Fragment(R.layout.game_fragment) {
                     .commit()
             }
         } else {
+            //viewModel.resetIndex()
             activity!!.supportFragmentManager.beginTransaction()
                 .replace(R.id.fcTitle, GameOverFragment.newInstance())
                 .commit()
@@ -110,7 +110,7 @@ class GameFragment : Fragment(R.layout.game_fragment) {
     private fun setupAppBar() {
         val text: String = getString(
             R.string.game_question_title,
-            GameViewModel.index + 1,
+            GameViewModel.index +1,
             viewModel.questions.value!!.size
         )
         (requireActivity() as AppCompatActivity).supportActionBar?.run {
