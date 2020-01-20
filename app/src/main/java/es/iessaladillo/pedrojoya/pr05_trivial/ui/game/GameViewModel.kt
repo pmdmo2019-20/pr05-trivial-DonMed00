@@ -37,6 +37,7 @@ class GameViewModel(private val repository: Repository, private val application:
     }
 
     private fun refreshList(newList: List<Question>) {
+        _questions.value= listOf()
         _questions.value = newList.subList(0, questionsSize)
         selectCurrentQuestion()
     }
