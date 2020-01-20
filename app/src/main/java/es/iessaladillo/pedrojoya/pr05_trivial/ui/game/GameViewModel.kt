@@ -1,17 +1,17 @@
 package es.iessaladillo.pedrojoya.pr05_trivial.ui.game
 
-import android.view.View
-import android.widget.RadioButton
+import android.app.Application
+import android.content.SharedPreferences
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.preference.PreferenceManager
 import es.iessaladillo.pedrojoya.pr05_trivial.R
 import es.iessaladillo.pedrojoya.pr05_trivial.data.Repository
-import es.iessaladillo.pedrojoya.pr05_trivial.data.entity.Answer
 import es.iessaladillo.pedrojoya.pr05_trivial.data.entity.Question
-import kotlinx.android.synthetic.main.game_fragment.*
 
-class GameViewModel(private val repository: Repository) : ViewModel() {
+class GameViewModel(private val repository: Repository, private val application: Application) :
+    ViewModel() {
 
 
     private val _questions: MutableLiveData<List<Question>> = MutableLiveData()
@@ -19,30 +19,45 @@ class GameViewModel(private val repository: Repository) : ViewModel() {
         get() = _questions
 
     lateinit var currentQuestion: Question
-    lateinit var currentRadioButton: RadioButton
-    lateinit var correctAnswer: Answer
-    var index = 0
+
+    private val settings: SharedPreferences by lazy {
+        PreferenceManager.getDefaultSharedPreferences(application)
+    }
+    private val questionsSize by lazy {
+        settings.getInt(
+            application.getString(R.string.numberOfQuestions_key), 10
+        )
+    }
 
     init {
-        refreshLists(repository.queryQuestions())
-        selectCurrentQuestion()
+
+        refreshList(repository.queryQuestions())
 
     }
 
-    private fun refreshLists(newList: List<Question>) {
-        _questions.value = newList
+    private fun refreshList(newList: List<Question>) {
+        _questions.value = newList.subList(0, questionsSize)
         selectCurrentQuestion()
     }
+
 
     private fun selectCurrentQuestion() {
         currentQuestion = _questions.value!![index]
     }
 
     fun goNextQuestion() {
-        index = +1
+        index += 1
 
 
-        selectCurrentQuestion()
+        //selectCurrentQuestion()
+    }
+
+    fun resetIndex() {
+        index = 0
+    }
+
+    companion object {
+        var index = 0
     }
 
 

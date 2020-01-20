@@ -1,14 +1,15 @@
 package es.iessaladillo.pedrojoya.pr05_trivial.ui.game
 
+import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.preference.PreferenceManager
 import es.iessaladillo.pedrojoya.pr05_trivial.R
 import es.iessaladillo.pedrojoya.pr05_trivial.data.LocalRepository
 import es.iessaladillo.pedrojoya.pr05_trivial.ui.game_over.GameOverFragment
 import es.iessaladillo.pedrojoya.pr05_trivial.ui.game_won.GameWonFragment
-import es.iessaladillo.pedrojoya.pr05_trivial.ui.main.MainActivity
 import kotlinx.android.synthetic.main.game_fragment.*
 
 
@@ -18,8 +19,17 @@ class GameFragment : Fragment(R.layout.game_fragment) {
         fun newInstance() = GameFragment()
     }
 
+    private val settings: SharedPreferences by lazy {
+        PreferenceManager.getDefaultSharedPreferences(requireContext())
+    }
+     val questionsSize by lazy {
+        settings.getInt(
+            getString(R.string.numberOfQuestions_key),10
+        )
+    }
+
     private val viewModel: GameViewModel by viewModels {
-        GameViewModelFactory(LocalRepository)
+        GameViewModelFactory(LocalRepository,activity!!.application)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -29,24 +39,21 @@ class GameFragment : Fragment(R.layout.game_fragment) {
 
     private fun setupViews() {
         setupAppBar()
-        setupRadioGroup()
         setupQuestion()
 
     }
 
+
     private fun setupQuestion() {
         lblQuestion.text = viewModel.currentQuestion.question
+
         radio1.text = viewModel.currentQuestion.answer1.text
-        radio1.isChecked = false
 
         radio2.text = viewModel.currentQuestion.answer2.text
-        radio2.isChecked = false
 
         radio3.text = viewModel.currentQuestion.answer3.text
-        radio3.isChecked = false
 
         radio4.text = viewModel.currentQuestion.answer4.text
-        radio4.isChecked = false
 
         getAnswer()
 
@@ -73,7 +80,8 @@ class GameFragment : Fragment(R.layout.game_fragment) {
 
     private fun submit(trueOrFalse: Boolean) {
         if (trueOrFalse) {
-            if (viewModel.index == viewModel.questions.value!!.size - 1) {
+            if (GameViewModel.index == viewModel.questions.value!!.size - 1) {
+                viewModel.resetIndex()
                 activity!!.supportFragmentManager.beginTransaction()
                     .replace(R.id.fcTitle, GameWonFragment.newInstance())
 
@@ -81,13 +89,14 @@ class GameFragment : Fragment(R.layout.game_fragment) {
 
             } else {
                 goNextQuestion()
-                setupQuestion()
-                setupAppBar()
+               // setupAppBar()
+                activity!!.supportFragmentManager.beginTransaction()
+                    .replace(R.id.fcTitle, newInstance())
+                    .commit()
             }
         } else {
             activity!!.supportFragmentManager.beginTransaction()
                 .replace(R.id.fcTitle, GameOverFragment.newInstance())
-                .addToBackStack(MainActivity.TAG_TITLE_FRAGMENT)
                 .commit()
 
         }
@@ -98,15 +107,10 @@ class GameFragment : Fragment(R.layout.game_fragment) {
     }
 
 
-    private fun setupRadioGroup() {
-        radio1.setOnClickListener { }
-    }
-
-
     private fun setupAppBar() {
         val text: String = getString(
             R.string.game_question_title,
-            viewModel.index + 1,
+            GameViewModel.index + 1,
             viewModel.questions.value!!.size
         )
         (requireActivity() as AppCompatActivity).supportActionBar?.run {

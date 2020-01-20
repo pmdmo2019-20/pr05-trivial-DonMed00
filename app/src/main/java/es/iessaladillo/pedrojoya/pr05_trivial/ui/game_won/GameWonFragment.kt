@@ -9,6 +9,8 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 
 import es.iessaladillo.pedrojoya.pr05_trivial.R
+import es.iessaladillo.pedrojoya.pr05_trivial.ui.game.GameFragment
+import kotlinx.android.synthetic.main.fragment_game_won.*
 
 /**
  * A simple [Fragment] subclass.
@@ -26,6 +28,17 @@ class GameWonFragment : Fragment(R.layout.fragment_game_won) {
 
     private fun setupViews() {
         setupAppBar()
+        setupBtnNextMatch()
+    }
+
+    private fun setupBtnNextMatch() {
+        btnYouWin.setOnClickListener { newMatch() }
+    }
+
+    private fun newMatch() {
+        activity!!.supportFragmentManager.beginTransaction()
+            .replace(R.id.fcTitle, GameFragment.newInstance())
+            .commit()
     }
 
     private fun setupAppBar() {
@@ -35,6 +48,8 @@ class GameWonFragment : Fragment(R.layout.fragment_game_won) {
             setTitle(R.string.game_won_imgYouWin)
         }
     }
+
+
 
 
 }

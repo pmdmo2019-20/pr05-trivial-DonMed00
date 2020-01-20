@@ -1,5 +1,8 @@
 package es.iessaladillo.pedrojoya.pr05_trivial.data
 
+import android.content.SharedPreferences
+import androidx.preference.PreferenceManager
+import es.iessaladillo.pedrojoya.pr05_trivial.R
 import es.iessaladillo.pedrojoya.pr05_trivial.data.entity.Answer
 import es.iessaladillo.pedrojoya.pr05_trivial.data.entity.Question
 

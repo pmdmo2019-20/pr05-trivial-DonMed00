@@ -5,12 +5,13 @@
         ​
         <SeekBarPreference
 
+
             app:title="@string/settings_numberOfQuestions"
             android:icon="@drawable/ic_question_answer_black_24dp"
-            android:key="@string/prefConfirmDialog_key"
+            android:key="@string/numberOfQuestions_key"
             android:max="10"
             app:min="1"
-            android:defaultValue="10"
+            android:defaultValue="@string/question_default"
             app:showSeekBarValue="true"/>
         ​
         <androidx.preference.SwitchPreferenceCompat
