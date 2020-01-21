@@ -12,17 +12,17 @@
         android:layout_width="284dp"
         android:layout_height="@dimen/image_header_height"
         android:layout_gravity="center"
-        android:layout_marginTop="72dp"
+        android:layout_marginTop="60dp"
         android:src="@drawable/trivia_rules"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.035"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="283dp"
-        android:layout_height="299dp"
+        android:layout_width="338dp"
+        android:layout_height="188dp"
         android:layout_marginStart="300dp"
         android:gravity="start"
         android:text="@string/rules_lblRules"

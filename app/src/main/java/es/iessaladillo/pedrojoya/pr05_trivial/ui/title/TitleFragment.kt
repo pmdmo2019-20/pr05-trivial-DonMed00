@@ -3,13 +3,17 @@ package es.iessaladillo.pedrojoya.pr05_trivial.ui.title
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.*
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.preference.PreferenceManager
 
 import es.iessaladillo.pedrojoya.pr05_trivial.R
+import es.iessaladillo.pedrojoya.pr05_trivial.data.LocalRepository
 import es.iessaladillo.pedrojoya.pr05_trivial.ui.game.GameFragment
+import es.iessaladillo.pedrojoya.pr05_trivial.ui.main.MainViewModel
+import es.iessaladillo.pedrojoya.pr05_trivial.ui.main.MainViewModelFactory
 import kotlinx.android.synthetic.main.title_fragment.*
 
 class TitleFragment : Fragment(R.layout.title_fragment) {
@@ -19,18 +23,19 @@ class TitleFragment : Fragment(R.layout.title_fragment) {
         private const val TAG_GAME_FRAGMENT = "TAG_GAME_FRAGMENT"
     }
 
-    private val viewModel: TitleViewModel by viewModels()
-
-
-
+    private val viewModel: MainViewModel by viewModels {
+        MainViewModelFactory(LocalRepository,activity!!.application)
+    }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+        viewModel.refreshList(LocalRepository.queryQuestions())
         setupViews()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setHasOptionsMenu(true)
     }
 
@@ -49,6 +54,7 @@ class TitleFragment : Fragment(R.layout.title_fragment) {
     }
 
     private fun startGame() {
+
         activity!!.supportFragmentManager.beginTransaction()
             .replace(R.id.fcTitle, GameFragment.newInstance())
             .commit()

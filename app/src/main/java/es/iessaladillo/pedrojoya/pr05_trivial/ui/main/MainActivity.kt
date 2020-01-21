@@ -4,12 +4,13 @@ import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
+import androidx.activity.viewModels
 import androidx.preference.PreferenceManager
 import es.iessaladillo.pedrojoya.pr05_trivial.R
+import es.iessaladillo.pedrojoya.pr05_trivial.data.LocalRepository
 import es.iessaladillo.pedrojoya.pr05_trivial.ui.about.AboutFragment
 import es.iessaladillo.pedrojoya.pr05_trivial.ui.game.DialogFragment
 import es.iessaladillo.pedrojoya.pr05_trivial.ui.game.GameFragment
-import es.iessaladillo.pedrojoya.pr05_trivial.ui.game.GameViewModel
 import es.iessaladillo.pedrojoya.pr05_trivial.ui.rules.RulesFragment
 import es.iessaladillo.pedrojoya.pr05_trivial.ui.settings.SettingFragment
 import es.iessaladillo.pedrojoya.pr05_trivial.ui.title.TitleFragment
@@ -21,6 +22,9 @@ class MainActivity : AppCompatActivity() {
 
     private val settings: SharedPreferences by lazy {
         PreferenceManager.getDefaultSharedPreferences(this)
+    }
+    private val viewModel: MainViewModel by viewModels {
+        MainViewModelFactory(LocalRepository,application)
     }
 
 
@@ -69,6 +73,7 @@ class MainActivity : AppCompatActivity() {
 
 
     override fun onBackPressed() {
+        viewModel.resetIndex()
          val showDialog by lazy {
             settings.getBoolean(
                 getString(R.string.prefConfirmSave_key), true
@@ -115,6 +120,7 @@ class MainActivity : AppCompatActivity() {
 
     companion object {
         const val TAG_TITLE_FRAGMENT = "TAG_TITLE_FRAGMENT"
+        var flag : Boolean = true
     }
 
 }

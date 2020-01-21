@@ -89,12 +89,18 @@ object LocalRepository : Repository {
 
     )
 
-    init {
-        queryQuestions()
-    }
+     lateinit var questionsOrdened: List<Question>
+
+
+
 
 
     override fun queryQuestions(): List<Question> {
-        return questions.shuffled()
+        questionsOrdened= questions.shuffled()
+        return questionsOrdened
+    }
+
+    override fun getOrdened(): List<Question> {
+        return questionsOrdened
     }
 }

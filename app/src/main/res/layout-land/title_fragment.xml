@@ -12,7 +12,7 @@
         android:layout_width="477dp"
         android:layout_height="169dp"
         android:layout_gravity="center"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="16dp"
         android:src="@drawable/android_trivia"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -10,13 +10,11 @@
     <ImageView
         android:id="@+id/imgGameWon"
 
-        android:layout_width="284dp"
-        android:layout_height="@dimen/image_header_height"
+        android:layout_width="395dp"
+        android:layout_height="195dp"
         android:layout_gravity="center"
-        android:layout_marginTop="16dp"
         android:src="@drawable/you_win"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -25,8 +23,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginStart="88dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginStart="140dp"
+        android:layout_marginTop="16dp"
         android:text="@string/game_won_btnNextMatch"
         app:layout_constraintStart_toStartOf="@+id/imgGameWon"
         app:layout_constraintTop_toBottomOf="@+id/imgGameWon" />
