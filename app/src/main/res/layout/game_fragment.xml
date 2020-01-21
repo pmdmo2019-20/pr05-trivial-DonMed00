@@ -26,7 +26,6 @@
         android:layout_height="70dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="40dp"
-        android:text="¿Coomo se llama el perro rojo de la casa de enfrente?"
         android:textColor="@color/black"
         android:textSize="@dimen/sizeText"
         android:textStyle="bold"
@@ -47,30 +46,22 @@
         <RadioButton
             android:id="@+id/radio1"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-            android:text="Respueesta1" />
+            android:layout_height="wrap_content" />
 
         <RadioButton
             android:id="@+id/radio2"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-            android:text="Respueesta2" />
+            android:layout_height="wrap_content" />
 
         <RadioButton
             android:id="@+id/radio3"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-            android:text="Respueesta3" />
+            android:layout_height="wrap_content" />
 
         <RadioButton
             android:id="@+id/radio4"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-            android:text="Respueesta4" />
+            android:layout_height="wrap_content" />
     </RadioGroup>
 
     <Button

@@ -89,7 +89,7 @@ object LocalRepository : Repository {
 
     )
 
-     lateinit var questionsOrdened: List<Question>
+     private lateinit var questionsOrdened: List<Question>
 
 
 

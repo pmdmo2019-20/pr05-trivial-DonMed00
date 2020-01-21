@@ -2,12 +2,8 @@ package es.iessaladillo.pedrojoya.pr05_trivial.ui.game_won
 
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
-
+import androidx.fragment.app.Fragment
 import es.iessaladillo.pedrojoya.pr05_trivial.R
 import es.iessaladillo.pedrojoya.pr05_trivial.ui.game.GameFragment
 import kotlinx.android.synthetic.main.fragment_game_won.*

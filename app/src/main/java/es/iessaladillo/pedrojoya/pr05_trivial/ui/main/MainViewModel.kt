@@ -2,7 +2,6 @@ package es.iessaladillo.pedrojoya.pr05_trivial.ui.main
 
 import android.app.Application
 import android.content.SharedPreferences
-import android.widget.RadioButton
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -12,14 +11,14 @@ import es.iessaladillo.pedrojoya.pr05_trivial.data.Repository
 import es.iessaladillo.pedrojoya.pr05_trivial.data.entity.Question
 import es.iessaladillo.pedrojoya.pr05_trivial.ui.main.MainActivity.Companion.flag
 
-class MainViewModel (private val repository: Repository, private val application: Application) :
+class MainViewModel (repository: Repository, private val application: Application) :
     ViewModel() {
 
     private val _questions: MutableLiveData<List<Question>> = MutableLiveData()
     val questions: LiveData<List<Question>>
         get() = _questions
 
-    //lateinit var currentQuestion: Question
+
 
     private val settings: SharedPreferences by lazy {
         PreferenceManager.getDefaultSharedPreferences(application)
@@ -42,21 +41,11 @@ class MainViewModel (private val repository: Repository, private val application
 
      fun refreshList(newList: List<Question>) {
              _questions.value = newList.subList(0, questionsSize)
-             selectCurrentQuestion()
-
-
     }
 
-
-    private fun selectCurrentQuestion() {
-    //    currentQuestion = _questions.value!![index]
-    }
 
     fun goNextQuestion() {
         index += 1
-
-
-        //selectCurrentQuestion()
     }
 
     fun resetIndex() {

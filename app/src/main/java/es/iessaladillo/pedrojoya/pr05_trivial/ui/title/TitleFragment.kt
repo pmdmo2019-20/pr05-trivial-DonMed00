@@ -1,14 +1,11 @@
 package es.iessaladillo.pedrojoya.pr05_trivial.ui.title
 
-import android.content.SharedPreferences
 import android.os.Bundle
-import android.view.*
-import androidx.activity.viewModels
+import android.view.Menu
+import android.view.MenuInflater
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.preference.PreferenceManager
-
 import es.iessaladillo.pedrojoya.pr05_trivial.R
 import es.iessaladillo.pedrojoya.pr05_trivial.data.LocalRepository
 import es.iessaladillo.pedrojoya.pr05_trivial.ui.game.GameFragment
@@ -20,7 +17,6 @@ class TitleFragment : Fragment(R.layout.title_fragment) {
 
     companion object {
         fun newInstance() = TitleFragment()
-        private const val TAG_GAME_FRAGMENT = "TAG_GAME_FRAGMENT"
     }
 
     private val viewModel: MainViewModel by viewModels {

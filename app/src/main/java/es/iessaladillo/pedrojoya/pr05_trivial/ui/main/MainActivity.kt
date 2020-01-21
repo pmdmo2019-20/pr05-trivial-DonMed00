@@ -119,7 +119,6 @@ class MainActivity : AppCompatActivity() {
 
 
     companion object {
-        const val TAG_TITLE_FRAGMENT = "TAG_TITLE_FRAGMENT"
         var flag : Boolean = true
     }
 
