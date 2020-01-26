@@ -43,9 +43,6 @@ class GameFragment : Fragment(R.layout.game_fragment) {
     }
 
     private fun setupViews() {
-
-        //viewModel.refreshList(LocalRepository.queryQuestions())
-
         setupAppBar()
         setupQuestion()
 
@@ -53,7 +50,6 @@ class GameFragment : Fragment(R.layout.game_fragment) {
 
 
     private fun setupQuestion() {
-        //viewModel.refreshList(LocalRepository.queryQuestions())
 
         lblQuestion.text = viewModel.questions.value!![index].question
 
@@ -104,7 +100,6 @@ class GameFragment : Fragment(R.layout.game_fragment) {
             } else {
                 flag=false
                 goNextQuestion()
-               // setupAppBar()
                 activity!!.supportFragmentManager.beginTransaction()
                     .replace(R.id.fcTitle, newInstance())
                     .commit()

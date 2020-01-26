@@ -20,6 +20,7 @@ class MainViewModel (repository: Repository, private val application: Applicatio
 
 
 
+
     private val settings: SharedPreferences by lazy {
         PreferenceManager.getDefaultSharedPreferences(application)
     }

@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity() {
             navigateToInitialDestination()
         }
         setupViews()
-        setupAppBar()
+
 
     }
 
@@ -46,8 +46,8 @@ class MainActivity : AppCompatActivity() {
             .commit()
     }
 
-
     private fun setupViews() {
+        setupAppBar()
     }
 
     private fun setupAppBar() {

@@ -85,6 +85,24 @@ object LocalRepository : Repository {
             Answer("1888", false),
             Answer("1456", false),
             Answer("1971", false)
+        ),Question(
+            "10 * 20 is ______:",
+            Answer("30", false),
+            Answer("200", true),
+            Answer("0", false),
+            Answer("120", false)
+        ),Question(
+            "Which processor belongs to Intel?",
+            Answer("Ryzen 7 2700", false),
+            Answer("Ryzen 7 3700k", false),
+            Answer("i9-9900k", true),
+            Answer("None", false)
+        ),Question(
+            "Fortnite was released in _____:",
+            Answer("2015", false),
+            Answer("2016", false),
+            Answer("2018", false),
+            Answer("2017", true)
         )
 
     )
